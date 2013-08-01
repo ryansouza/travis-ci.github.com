@@ -236,3 +236,16 @@ GitHub username, the name of the repository, and your Travis token.  In Python,
     sha256('username/repository' + TRAVIS_TOKEN).hexdigest()
 
 Use this to ensure Travis is the one making requests to your webhook.
+
+## Encrypted notification secrets
+
+The same mechanism behind secure environment variables can secure notification secrets as well.
+
+For example, campfire rooms
+
+    $ travis encrypt example:1234abcd@123456 # => 849f1926c07a512435deccd799ee15408cf94c3a...
+
+    notifications:
+      campfire:
+        rooms:
+          - secure: 849f1926c07a512435deccd799ee15408cf94c3a...
